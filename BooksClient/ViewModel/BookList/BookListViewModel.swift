@@ -20,8 +20,10 @@ class BookListViewModel {
     init(bookApi: BookApi) {
         self.bookApi = bookApi
         
+        let throttleDueTime = RxTimeInterval(2)
         books = searchText
             .asObservable()
+            .throttle(throttleDueTime, scheduler: MainScheduler.instance)
             .flatMapLatest { searchString -> Observable<[Book]> in
                 guard !searchString.isEmpty else {
                     return Observable.empty()

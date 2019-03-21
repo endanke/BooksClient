@@ -25,6 +25,8 @@ class BookApi {
             
             let session = URLSession.shared
             var request = URLRequest(url: url)
+            
+            // API key is limited to the iOS bundle id, so add it it the header
             request.addValue(Bundle.main.bundleIdentifier!, forHTTPHeaderField: "X-Ios-Bundle-Identifier")
             
             let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
@@ -38,13 +40,13 @@ class BookApi {
                 }
                 
                 do {
-                    //create json object from data
                     if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
                         var books = [] as [Book]
-                        //print(json)
 
-                        for item in json["items"] as! NSArray {
-                            books.append(Book(item: item as! [String: Any]))
+                        if json["items"] != nil {
+                            for item in json["items"] as! NSArray {
+                                books.append(Book(item: item as! [String: Any]))
+                            }
                         }
                                                 
                         observer.on(.next(books))

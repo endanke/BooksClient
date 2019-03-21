@@ -43,6 +43,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TbD-Vv-l7F">
                                 <rect key="frame" x="0.0" y="126" width="375" height="541"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BookListTableViewCell" rowHeight="200" id="goN-iV-eDA" customClass="BookListTableViewCell" customModule="BooksClient" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
@@ -51,21 +52,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M0B-Ib-d8C">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M0B-Ib-d8C">
                                                     <rect key="frame" x="31" y="27" width="97.5" height="146"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="M0B-Ib-d8C" secondAttribute="height" multiplier="1:1.5" id="5Kg-F1-zm9"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEt-EP-SdC">
-                                                    <rect key="frame" x="144.5" y="27" width="173.5" height="23"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <rect key="frame" x="144.5" y="27" width="173.5" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authors" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RrY-js-2Xm">
-                                                    <rect key="frame" x="144.5" y="58" width="173.5" height="23"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <rect key="frame" x="144.5" y="64" width="173.5" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -84,6 +86,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="authorsLabel" destination="RrY-js-2Xm" id="Mf1-Dp-FNy"/>
+                                            <outlet property="thumbnailImageView" destination="M0B-Ib-d8C" id="TXD-fJ-bya"/>
                                             <outlet property="titleLabel" destination="sEt-EP-SdC" id="c9L-bA-rqI"/>
                                         </connections>
                                     </tableViewCell>

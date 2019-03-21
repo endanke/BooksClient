@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Kingfisher
 
 class BookListViewController: UIViewController {
 
@@ -21,6 +22,7 @@ class BookListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.setNavigationBarHidden(true, animated: false)
         viewModel = BookListViewModel(bookApi: BookApi())
         addBindsToViewModel(viewModel: viewModel)
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
@@ -34,7 +36,8 @@ class BookListViewController: UIViewController {
         viewModel.books
             .bind(to: tableView.rx.items(cellIdentifier: "BookListTableViewCell", cellType: BookListTableViewCell.self)) { (row, element, cell) in
                 cell.titleLabel.text = element.title
-                cell.authorsLabel.text = "\(element.authors)"
+                cell.authorsLabel.text = element.authors.joined(separator: ", ")
+                cell.thumbnailImageView!.kf.setImage(with: URL(string: element.thumbnail), options: [.transition(.fade(0.2))])
             }
             .disposed(by: disposeBag)
     }
