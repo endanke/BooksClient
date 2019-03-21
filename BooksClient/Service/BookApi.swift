@@ -21,34 +21,26 @@ class BookApi {
     func search(title: String) -> Observable<[Book]> {
         return Observable.create { observer in
             let encodedTitle = title.replacingOccurrences(of: " ", with: "%20")
-            let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=\(encodedTitle)&key=\(Constants.apiKey)")!
+            let url = URL(string: "\(Constants.baseURL)volumes?q=\(encodedTitle)&key=\(Constants.apiKey)")!
             
-            let session = URLSession.shared
             var request = URLRequest(url: url)
             
             // API key is limited to the iOS bundle id, so add it it the header
             request.addValue(Bundle.main.bundleIdentifier!, forHTTPHeaderField: "X-Ios-Bundle-Identifier")
             
-            let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+            let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
                 
-                guard error == nil else {
-                    return
-                }
-                
-                guard let data = data else {
-                    return
-                }
+                guard error == nil else { return }
+                guard let data = data else { return }
                 
                 do {
                     if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
                         var books = [] as [Book]
-
                         if json["items"] != nil {
                             for item in json["items"] as! NSArray {
                                 books.append(Book(item: item as! [String: Any]))
                             }
                         }
-                                                
                         observer.on(.next(books))
                     }
                 } catch let error {

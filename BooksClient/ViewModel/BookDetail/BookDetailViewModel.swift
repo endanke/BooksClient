@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class BookDetailViewModel {
+
+    let book: Book
+
+    init(book: Book) {
+        self.book = book
+    }
+
+}

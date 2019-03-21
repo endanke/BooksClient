@@ -8,8 +8,6 @@
 
 import Foundation
 
-// In the original response the book details are stored in a nested document
-// For the sake of simplicity have flattened some parts of the data
 struct Book {
     
     let id: String
@@ -18,6 +16,8 @@ struct Book {
     let thumbnail: String
     let infoLink: String
     
+    // In the original response the book details are stored in a nested document
+    // For the sake of simplicity have flattened some parts of the data
     init(item: [String: Any]) {
         id = item["id"] as! String
         
