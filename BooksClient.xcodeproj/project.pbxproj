@@ -24,6 +24,8 @@
 		30F9BF6022439EA0003A111F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30F9BF5F22439EA0003A111F /* RxCocoa.framework */; };
 		30F9BF6122439EA0003A111F /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 30F9BF5F22439EA0003A111F /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		30F9BF632243AB23003A111F /* BookListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F9BF622243AB23003A111F /* BookListTableViewCell.swift */; };
+		30F9BF652243B317003A111F /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30F9BF642243B316003A111F /* Kingfisher.framework */; };
+		30F9BF662243B317003A111F /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 30F9BF642243B316003A111F /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				30F9BF6122439EA0003A111F /* RxCocoa.framework in Embed Frameworks */,
+				30F9BF662243B317003A111F /* Kingfisher.framework in Embed Frameworks */,
 				30F9BF5D22439E7B003A111F /* RxSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -71,6 +74,7 @@
 		30F9BF5A22439727003A111F /* BookDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewModel.swift; sourceTree = "<group>"; };
 		30F9BF5F22439EA0003A111F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		30F9BF622243AB23003A111F /* BookListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListTableViewCell.swift; sourceTree = "<group>"; };
+		30F9BF642243B316003A111F /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30F9BF6022439EA0003A111F /* RxCocoa.framework in Frameworks */,
+				30F9BF652243B317003A111F /* Kingfisher.framework in Frameworks */,
 				30F9BF4722439005003A111F /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,6 +101,7 @@
 		30F9BF1822438758003A111F = {
 			isa = PBXGroup;
 			children = (
+				30F9BF642243B316003A111F /* Kingfisher.framework */,
 				30F9BF5F22439EA0003A111F /* RxCocoa.framework */,
 				30F9BF2322438758003A111F /* BooksClient */,
 				30F9BF3822438759003A111F /* BooksClientUITests */,
